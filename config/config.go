@@ -35,7 +35,7 @@ type Secret string
 // MarshalYAML implements the yaml.Marshaler interface.
 func (s Secret) MarshalYAML() (interface{}, error) {
 	if s != "" {
-		return "<secret>", nil
+		return s, nil
 	}
 	return nil, nil
 }
@@ -112,7 +112,7 @@ type SecretURL URL
 // MarshalYAML implements the yaml.Marshaler interface for SecretURL.
 func (s SecretURL) MarshalYAML() (interface{}, error) {
 	if s.URL != nil {
-		return "<secret>", nil
+		return s.URL.String(), nil
 	}
 	return nil, nil
 }
