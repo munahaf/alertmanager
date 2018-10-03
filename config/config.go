@@ -48,7 +48,7 @@ func (s *Secret) UnmarshalYAML(unmarshal func(interface{}) error) error {
 
 // MarshalJSON implements the json.Marshaler interface.
 func (s Secret) MarshalJSON() ([]byte, error) {
-	return json.Marshal("<secret>")
+	return json.Marshal(s)
 }
 
 // URL is a custom type that allows validation at configuration load time.
@@ -124,7 +124,7 @@ func (s *SecretURL) UnmarshalYAML(unmarshal func(interface{}) error) error {
 
 // MarshalJSON implements the json.Marshaler interface for SecretURL.
 func (s SecretURL) MarshalJSON() ([]byte, error) {
-	return json.Marshal("<secret>")
+	return json.Marshal(s)
 }
 
 // UnmarshalJSON implements the json.Marshaler interface for SecretURL.
