@@ -1,4 +1,4 @@
-FROM node:6.10
+FROM node:14.21.3
 
 RUN npm install -g \
   elm@0.19.0 \
