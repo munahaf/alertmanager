@@ -641,7 +641,7 @@ func (d *decoder) mapping(n *node, out reflect.Value) (good bool) {
 }
 
 func (d *decoder) setMapIndex(n *node, out, k, v reflect.Value) {
-	if d.strict && out.MapIndex(k) != zeroValue {
+	if d.strict && out.MapIndex(k).Interface() != zeroValue.Interface() {
 		d.terrors = append(d.terrors, fmt.Sprintf("line %d: key %#v already set in map", n.line+1, k.Interface()))
 		return
 	}
